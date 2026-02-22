@@ -1,25 +1,25 @@
 class Nodoze < Formula
   desc "Keep your speakers awake by playing an inaudible tone periodically"
   homepage "https://github.com/TwoSlick/nodoze"
-  version "1.0.1"
+  version "1.0.2"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/TwoSlick/nodoze/releases/download/v1.0.1/nodoze-aarch64-apple-darwin.tar.xz"
-      sha256 "28e8480170b5ba3843bfd0cd7277cca9690091586adb4571d85e076c9bc27c91"
+      url "https://github.com/TwoSlick/nodoze/releases/download/v1.0.2/nodoze-aarch64-apple-darwin.tar.xz"
+      sha256 "1dd75b6e06202251a117fe5f5dffcf7f17c1c6c845b3a855d3beddd03761914b"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/TwoSlick/nodoze/releases/download/v1.0.1/nodoze-x86_64-apple-darwin.tar.xz"
-      sha256 "fb7f51c7e59e5bbd52990a7166bb24531a298e4191ce47b7163ba2a25acf1b1e"
+      url "https://github.com/TwoSlick/nodoze/releases/download/v1.0.2/nodoze-x86_64-apple-darwin.tar.xz"
+      sha256 "a0d9506a906a809fc3572f6638dd94abb5475f733faf4e5be5563b6955c4f03c"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/TwoSlick/nodoze/releases/download/v1.0.1/nodoze-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "b1d7d30b2f93e21cfa6db973fcc9b7bcddbb33bc53bd519a80df2a64a39deba6"
+      url "https://github.com/TwoSlick/nodoze/releases/download/v1.0.2/nodoze-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "1ee3c2db44a21aecb85398b9476347718e5691a2d1c706cb6964f1d921354692"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/TwoSlick/nodoze/releases/download/v1.0.1/nodoze-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "eb2827672415cf697ce635669c86536e140d211fa13455f2552b1bf802614bab"
+      url "https://github.com/TwoSlick/nodoze/releases/download/v1.0.2/nodoze-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "61327ff9fded326ceafbf0a2562e49720a8e98f2fca7877c04448cccdd803187"
     end
   end
   license "MIT"
