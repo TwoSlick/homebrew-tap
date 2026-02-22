@@ -1,28 +1,35 @@
 class Nodoze < Formula
   desc "Keep your speakers awake by playing an inaudible tone periodically"
   homepage "https://github.com/TwoSlick/nodoze"
-  version "1.0.0"
+  version "1.0.1"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/TwoSlick/nodoze/releases/download/v1.0.0/nodoze-aarch64-apple-darwin.tar.xz"
-      sha256 "663094748e27d323c784975a5d1064211285a939e778a173c418f65a91352043"
+      url "https://github.com/TwoSlick/nodoze/releases/download/v1.0.1/nodoze-aarch64-apple-darwin.tar.xz"
+      sha256 "28e8480170b5ba3843bfd0cd7277cca9690091586adb4571d85e076c9bc27c91"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/TwoSlick/nodoze/releases/download/v1.0.0/nodoze-x86_64-apple-darwin.tar.xz"
-      sha256 "0f565cb50e25ad844f39c0e68a8d4a1d4ffbdff4ed8575e43e140e37659beb6f"
+      url "https://github.com/TwoSlick/nodoze/releases/download/v1.0.1/nodoze-x86_64-apple-darwin.tar.xz"
+      sha256 "fb7f51c7e59e5bbd52990a7166bb24531a298e4191ce47b7163ba2a25acf1b1e"
     end
   end
-  if OS.linux? && Hardware::CPU.intel?
-      url "https://github.com/TwoSlick/nodoze/releases/download/v1.0.0/nodoze-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "75143a0545be0825fb7a66f42eb626644b2d883412da2ad12e656d8856831ab5"
+  if OS.linux?
+    if Hardware::CPU.arm?
+      url "https://github.com/TwoSlick/nodoze/releases/download/v1.0.1/nodoze-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "b1d7d30b2f93e21cfa6db973fcc9b7bcddbb33bc53bd519a80df2a64a39deba6"
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/TwoSlick/nodoze/releases/download/v1.0.1/nodoze-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "eb2827672415cf697ce635669c86536e140d211fa13455f2552b1bf802614bab"
+    end
   end
   license "MIT"
 
   BINARY_ALIASES = {
-    "aarch64-apple-darwin":     {},
-    "x86_64-apple-darwin":      {},
-    "x86_64-pc-windows-gnu":    {},
-    "x86_64-unknown-linux-gnu": {},
+    "aarch64-apple-darwin":      {},
+    "aarch64-unknown-linux-gnu": {},
+    "x86_64-apple-darwin":       {},
+    "x86_64-pc-windows-gnu":     {},
+    "x86_64-unknown-linux-gnu":  {},
   }.freeze
 
   def target_triple
@@ -43,6 +50,7 @@ class Nodoze < Formula
   def install
     bin.install "nodoze" if OS.mac? && Hardware::CPU.arm?
     bin.install "nodoze" if OS.mac? && Hardware::CPU.intel?
+    bin.install "nodoze" if OS.linux? && Hardware::CPU.arm?
     bin.install "nodoze" if OS.linux? && Hardware::CPU.intel?
 
     install_binary_aliases!
